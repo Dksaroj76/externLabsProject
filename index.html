@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        FRONTEND PROJECT
+    </title>
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+    </script>
+
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        img {
+            height: 250px;
+            width: 350px;
+        }
+        
+        #imageListId {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        #imageListId div {
+            margin: 0 4px 4px 4px;
+            padding: 0.4em;
+            display: inline-block;
+        }
+        
+        .listitemClass {
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 350px;
+        }
+        
+        .height {
+            height: 10px;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $("#imageListId").sortable({
+                update: function(event, ui) {
+                        getIdsOfImages();
+                    } //end update		
+            });
+        });
+
+        function getIdsOfImages() {
+            var values = [];
+            $('.listitemClass').each(function(index) {
+                values.push($(this).attr("id")
+                    .replace("imageNo", ""));
+            });
+
+            $('#outputvalues').val(values);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 style="color:black">Image Slider</h1>
+
+    <div class="height"></div><br>
+
+    <div id="imageListId">
+        <div id="imageNo1" class="listitemClass">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80" alt="">
+        </div>
+
+        <div id="imageNo2" class="listitemClass">
+            <img src="https://images.unsplash.com/photo-1667168342195-0e98994e8d9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=894&q=80" alt="">
+        </div>
+
+        <div id="imageNo3" class="listitemClass">
+            <img src="https://images.unsplash.com/photo-1664575602276-acd073f104c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+        </div>
+
+        <div id="imageNo4" class="listitemClass">
+            <img src="https://images.unsplash.com/photo-1664575196044-195f135295df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+        </div>
+
+        <div id="imageNo5" class="listitemClass">
+            <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+        </div>
+
+        <div id="imageNo6" class="listitemClass">
+            <img src="https://images.unsplash.com/photo-1667143139219-93ee3b53395c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
